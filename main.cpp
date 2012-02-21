@@ -1,13 +1,21 @@
+/**
+ * Conway's Game Of Life
+ * Author: Josh Galofaro
+ **/
 #include <iostream>
 #include <time.h>
 #include <cstdlib>
 using namespace std;
 
+//Size of the game board
 const int maxSize = 20;
 char board [maxSize][maxSize];
-const char life = '*';
-const char blank = ' ';
+const char life = '*';	//Represents life
+const char blank = ' '; //Represents nothing
 
+/**
+ * Originally creates the game board, filled with blanks
+ **/
 void createBoard()
 {
 	for( int i = 0; i <= maxSize; i++ )
@@ -15,6 +23,9 @@ void createBoard()
 			board[i][j] = blank;
 }
 
+/**
+ * Used to output game board to screen
+ **/
 void showBoard()
 {
 	for( int i = 0; i <= maxSize; i++ )
@@ -25,6 +36,9 @@ void showBoard()
 	}
 }
 
+/**
+ * Clears command prompt
+ **/
 void clearPrompt()
 {
 	system("clear");
@@ -33,6 +47,11 @@ void clearPrompt()
 //Needs to deal with game's boarders
 int neighbourCount(int X, int Y)
 {
+	/**
+ 	 *	This is a super rough, problimatic roundabout way to 
+ 	 * 	deal with the game boarders to wrap around, needs to
+	 *	be fixed using % and MATH!
+	 **/
 	int count = 0;
 	cerr << "NEIGHCOUNT-1" << endl;
 
